@@ -3,7 +3,7 @@
 PORT={{ redis_confs.port }}
 CURRENT_HOST="{{ inventory_hostname }}"
 NODE_IP="{{ hostvars[inventory_hostname].ansible_default_ipv4.address }}:$PORT"
-HOSTS="{{ ansible_play_hosts  | join(' ') }}"
+HOSTS="{{ play_hosts  | join(' ') }}"
 {% if redis_cluster_replicas != 0 %}
 REPLICAS="--replicas {{ redis_cluster_replicas }}"
 {% endif %}
